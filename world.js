@@ -1,22 +1,37 @@
 window.onload = function(){
     
-    var lookupBtn = document.getElementById('Lookup');
+    var lookupBtn = document.getElementById('lookup');
     var httpRequest;
-    var searchRequest; 
+    var searchResult; 
 
     lookupBtn.addEventListener('click', function(element) {
         element.preventDefault();
 
-        var country = documnet.getElementById('result');
-        searchResult = document.getElementById('country').value;
+        var searchResult = document.getElementById('result');
+        var country = documnet.getElementById('country').value;
 
-        httpRequest = new XMLHttpRequest();
+        var httpRequest = new XMLHttpRequest();
         var url = "world.php?country" + country;
         httpRequest.onreadystatechange = searchBtn;
         httpRequest.open('GET', url);
         httpRequest.send();
 
     });
+
+    lookupCitiesBtn.addEventListener('click', function(element){
+        element.preventDefault();
+
+        var searchResult = document.getElementById('result').value;
+        var city = document.getElementById('city').value;
+
+        var httpRequest = new XMLHttpRequest();
+        var url = "world.php?country=country&context=cities" + country;
+        httpRequest.onreadystatechange = searchBtn
+        httpRequest.open('GET', url);
+        httpRequest.send();
+
+
+    })
 
     function searchBtn(){
         if (httpRequest.readyState == XMLHttpRequest.DONE){
